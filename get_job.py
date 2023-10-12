@@ -53,6 +53,7 @@ types_de_donnees = {
 for colonne, type_de_donnees in types_de_donnees.items():
     df[colonne] = df[colonne].apply(type_de_donnees)
 
+
 df['description'] = df['description'].str.replace(',', '').str.replace('\n', '').str.strip()
 df.to_csv(fichier_csv, sep=";", index=True, encoding="utf-8")
 
