@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+</head>
+<body>
+<h1>Connexion</h1>
+<form method="POST">
+    <label for="email">Adresse e-mail :</label>
+    <input type="email" name="AdresseEmail" required><br>
+    <input type="submit" value="Se connecter">
+</form>
+<p>Pas encore inscrit ? <a href="{{ url_for('inscription') }}">Inscrivez-vous ici</a></p>
+</body>
+</html>

@@ -1,7 +1,5 @@
-USE fast_jobdb;
 
--- ALTER TABLE OffreEmploi DROP FOREIGN KEY offreemploi_ibfk_1;
-
+USE fastjobdb;
 
 -- Table Entreprise
 CREATE TABLE Entreprise (
@@ -9,29 +7,52 @@ CREATE TABLE Entreprise (
                             entrepriseAdaptee BOOLEAN
 );
 
--- Table OffreEmploi
+
 CREATE TABLE OffreEmploi (
                              id INT AUTO_INCREMENT PRIMARY KEY,
-                             appellationlibelle VARCHAR(255),
-                             codeNAF VARCHAR(10),
-                             dateActualisation DATETIME,
-                             dateCreation DATETIME,
+                             intitule VARCHAR(255),
                              description TEXT,
-                             dureeTravailLibelle VARCHAR(100),
-                             dureeTravailLibelleConverti VARCHAR(50),
-                             experienceExige CHAR(1),
-                             experienceLibelle VARCHAR(100),
+                             dateCreation DATETIME,
+                             dateActualisation DATETIME,
+                             lieuTravail VARCHAR(255),
+                             romeCode VARCHAR(255),
+                             romeLibelle VARCHAR(255),
+                             appellationlibelle VARCHAR(255),
+                             entreprise VARCHAR(255),
+                             typeContrat VARCHAR(255),
+                             typeContratLibelle VARCHAR(255),
+                             natureContrat VARCHAR(255),
+                             experienceExige VARCHAR(255),
+                             experienceLibelle VARCHAR(255),
+                             formations TEXT,
+                             competences TEXT,
+                             salaire VARCHAR(255),
+                             dureeTravailLibelle VARCHAR(255),
+                             dureeTravailLibelleConverti VARCHAR(255),
+                             alternance VARCHAR(255),
+                             contact VARCHAR(255),
                              nombrePostes INT,
-                             offresManqueCandidats TINYINT(1),
-                             natureContrat VARCHAR(50),
-                             qualificationCode VARCHAR(10),
-                             qualificationLibelle VARCHAR(100),
-                             romeCode VARCHAR(10),
-                             romeLibelle VARCHAR(100),
-                             typeContrat VARCHAR(50),
+                             accessibleTH VARCHAR(255),
+                             deplacementCode VARCHAR(255),
+                             deplacementLibelle VARCHAR(255),
+                             qualificationCode VARCHAR(255),
+                             qualificationLibelle VARCHAR(255),
+                             codeNAF VARCHAR(255),
+                             secteurActivite VARCHAR(255),
+                             secteurActiviteLibelle VARCHAR(255),
+                             qualitesProfessionnelles TEXT,
+                             origineOffre VARCHAR(255),
+                             offresManqueCandidats VARCHAR(255),
+                             permis VARCHAR(255),
+                             agence VARCHAR(255),
+                             langues TEXT,
+                             experienceCommentaire TEXT,
+                             conditionExercice TEXT,
+                             complementExercice TEXT,
                              entreprise_id INT,
                              FOREIGN KEY (entreprise_id) REFERENCES Entreprise(entreprise_id)
 );
+
 
 
 -- Table Salaire
@@ -89,7 +110,7 @@ CREATE TABLE Formation (
 
 -- Table Utilisateurs
 CREATE TABLE Utilisateurs (
-                              id VARCHAR(255) PRIMARY KEY,
+                              id INT AUTO_INCREMENT PRIMARY KEY,
                               Nom VARCHAR(255),
                               Prenom VARCHAR(255),
                               AdresseEmail VARCHAR(255),
@@ -105,7 +126,7 @@ CREATE TABLE Utilisateurs (
 -- Table Profils
 CREATE TABLE Profils (
                          id VARCHAR(255) PRIMARY KEY,
-                         Utilisateur_ID VARCHAR(255),
+                         Utilisateur_ID INT,
                          TitreDuProfil VARCHAR(255),
                          Resume TEXT,
                          Experience TEXT, -- Structure de données sérialisée
@@ -116,11 +137,36 @@ CREATE TABLE Profils (
 -- Table Candidatures
 CREATE TABLE Candidatures (
                               id SERIAL PRIMARY KEY,
-                              Utilisateur_ID VARCHAR(255),
+                              Utilisateur_ID INT,
                               OffreEmploi_ID INT,
                               FOREIGN KEY (Utilisateur_ID) REFERENCES Utilisateurs(id),
                               FOREIGN KEY (OffreEmploi_ID) REFERENCES OffreEmploi(id)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

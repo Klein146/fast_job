@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Créer un compte</title>
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="card">
+        {% if error %}
+        <p class="error"><strong>Erreur : </strong>{{ error }}</p>
+        {% endif %}
+        <h2>Créer un compte</h2>
+
+        <form action="" method="post">
+
+            <input type="text" cols="25" name="prenom" placeholder= "Prénom" maxlength="40" required/><br>
+
+            <input type="text" name="nom" placeholder= "Nom" maxlength="40" required/><br>
+
+            <input type="text" name="e_mail" placeholder= "E-mail" maxlength="40" required/><br>
+
+            <input type="password" name="mot_de_passe" placeholder= "Mot de passee" maxlength="40" required/><br>
+
+            <textarea name="description" placeholder= "Description" maxlength="256" >Description...
+            </textarea>
+
+            <br>
+            <input type="submit" value="S'enregistrer"><br>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
